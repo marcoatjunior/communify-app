@@ -18,7 +18,8 @@
       "styles": ["./src/styles/styles.scss"],
       "config": ["./src/app/config.ts"],
       "environment": ["./src/app/environment.ts"],
-      "@shared/*": ["./src/app/shared/*"]
+      "@shared/*": ["./src/app/shared/*"],
+      "@login/*": ["./src/app/login/*"]
     }
   },
   "angularCompilerOptions": {
