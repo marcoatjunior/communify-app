@@ -13,6 +13,12 @@ const routes: Routes = [
     loadChildren: () =>
       import("./login/login.module").then((m) => m.LoginModule),
   },
+  {
+    path: "steps",
+    loadChildren: () =>
+      import("./steps/steps.module").then((m) => m.StepsModule),
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

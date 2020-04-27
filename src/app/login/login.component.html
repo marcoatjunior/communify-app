@@ -1,14 +1,16 @@
-<div class="vertical-center">
-    <div class="center">
-        <img src="assets/images/lasalle.png" class="ion-align-self-end" />
-        <div class="display-center" style="padding-bottom: 1em">
-            <label>Communify</label>
-        </div>
-        <div class="display-center">
-            <div style="background-color: white">
-                <img src="assets/images/google.png">
-                <label color="dark">Acessar com o Google</label>
-            </div>
-        </div>
-    </div>
+<div class="login-page">
+    <mat-card>
+        <mat-card-title>
+            <img src="assets/images/lasalle.png" layout-fill class="logo-university" />
+        </mat-card-title>
+        <mat-card-content>
+            <mat-label class="mat-title">Communify</mat-label>
+        </mat-card-content>
+        <mat-card-content>
+            <img src="assets/images/google.png" layout-fill class="logo-google">
+        </mat-card-content>
+        <mat-card-content>
+            <button mat-raised-button color="primary" (click)="goToSteps()">Acessar com o Google</button>
+        </mat-card-content>
+    </mat-card>
 </div>

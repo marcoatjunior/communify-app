@@ -1,3 +1,37 @@
-body {
-    background-image: url('../../assets/images/lasalle.png');
+:host {
+  height: 100vh;
+  background-image: url("../../assets/images/university.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+}
+
+.login-page {
+  justify-content: center;
+  margin: 33.3vh 9.5vh;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-card {
+  border: 3px solid #013d7e;
+  border-radius: 10px;
+  background-color: white;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-university {
+  width: 50%;
+}
+
+.logo-google {
+  width: 15%;
 }
