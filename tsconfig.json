@@ -14,6 +14,7 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"],
     "paths": {
+      "images": ["./src/assets/images/*"],
       "styles": ["./src/styles/styles.scss"],
       "config": ["./src/app/config.ts"],
       "environment": ["./src/app/environment.ts"],
