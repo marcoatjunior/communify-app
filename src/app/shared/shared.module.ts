@@ -22,6 +22,7 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { MatSelectModule } from "@angular/material/select";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { LoadingComponent } from "./components/loading/loading.component";
+import { ProfileComponent } from "./components/profile/profile.component";
 
 @NgModule({
   imports: [
@@ -48,7 +49,7 @@ import { LoadingComponent } from "./components/loading/loading.component";
     MatProgressSpinnerModule,
     RouterModule,
   ],
-  declarations: [NavbarComponent, LoadingComponent],
+  declarations: [NavbarComponent, LoadingComponent, ProfileComponent],
   exports: [
     CommonModule,
     ScrollingModule,
@@ -73,6 +74,7 @@ import { LoadingComponent } from "./components/loading/loading.component";
     MatProgressSpinnerModule,
     NavbarComponent,
     LoadingComponent,
+    ProfileComponent,
   ],
 })
 export class SharedModule {}

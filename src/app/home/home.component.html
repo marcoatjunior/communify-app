@@ -1,4 +1,7 @@
-<div fxFlex="100" fxFill fxLayout="column">
+<div fxLayout="column" fxLayoutAlign="space-around none" >
+  <app-profile></app-profile>
+</div>
+<div fxLayout="column" fxLayoutAlign="space-around none" >
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z4">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef class="table-header">{{ TASKS }}</th>
