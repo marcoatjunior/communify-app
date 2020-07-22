@@ -29,10 +29,6 @@ export class NavbarComponent implements OnInit {
     this.isLogged = this.authService.currentUserValue !== null;
   }
 
-  goToProfile() {
-    this.router.navigate(["/perfil"]);
-  }
-
   logout() {
     this.authService.logout();
     this.router.navigate(["/login"]);
