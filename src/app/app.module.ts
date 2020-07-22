@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { JwtInterceptor } from "@shared/interceptor/jwt.interceptor";
 import { ReactiveFormsModule } from "@angular/forms";
+import { SharedModule } from "@shared/shared.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    SharedModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

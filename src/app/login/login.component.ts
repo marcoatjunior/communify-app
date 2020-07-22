@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { User } from '@shared/models/user';
+import { AuthService } from "@shared/services/auth.service";
 
 @Component({
   selector: "app-login",
@@ -8,15 +8,12 @@ import { User } from '@shared/models/user';
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {}
 
   goToSteps(): void {
-    let user = new User();
-    user.name = "Marco Taborda";
-    user.classroom_email_address = "marco.junior0932@unilasalle.edu.br";
-    localStorage.setItem("user", JSON.stringify(user));
+    this.authService.login();
     this.router.navigate(["/steps"]);
   }
 }

@@ -18,6 +18,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
+import { NavbarComponent } from "./components/navbar/navbar.component";
+import { MatSelectModule } from "@angular/material/select";
 
 @NgModule({
   imports: [
@@ -40,9 +42,10 @@ import { MatButtonModule } from "@angular/material/button";
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatSelectModule,
     RouterModule,
   ],
-  declarations: [],
+  declarations: [NavbarComponent],
   exports: [
     CommonModule,
     ScrollingModule,
@@ -63,6 +66,8 @@ import { MatButtonModule } from "@angular/material/button";
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatSelectModule,
+    NavbarComponent,
   ],
 })
 export class SharedModule {}
