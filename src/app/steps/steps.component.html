@@ -1,7 +1,7 @@
 <mat-vertical-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="moodleFormGroup">
     <form [formGroup]="moodleFormGroup">
-      <ng-template matStepLabel>Moodle</ng-template>
+      <ng-template matStepLabel>{{ LABEL_STEP_ONE }}</ng-template>
       <mat-form-field>
         <mat-label>E-mail do Moodle</mat-label>
         <input matInput placeholder="Digite o e-mail..." formControlName="email" required style="width: 100%;">
@@ -15,18 +15,13 @@
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
-    <ng-template matStepLabel>Termo de Responsabilidade</ng-template>
+    <ng-template matStepLabel>{{ LABEL_STEP_TWO }}</ng-template>
     <p class="text-justify">Eu, <b>{{ currentUser.name }}</b>, reconheço como verdadeira e de responsabilidade própria
       os endereços de e-mail
       informados, que são: <br><br>
-      <b>Moodle: </b> {{ currentUser.classroom_email_address }} <br><br>
-      <b>Classroom: </b> {{ currentUser.moodle_email_address }} <br><br>
-      <span class="mat-small text-justify">
-        Após a conclusão do passo a passo será enviado um e-mail para cada um dos endereços informados, contendo o
-        e-mail principal utilizado (login junto ao Google) e o IP de rede externo utilizado no preenchimento do
-        formulário, a fim de garantir a vigilância de acesso. Diariamente são gerados arquivos de requisições de acesso
-        contendo essas informações, para que se tenha total controle das informações acessadas.
-      </span>
+      <b>Moodle: </b> {{ currentUser.moodle_email_address }} <br><br>
+      <b>Classroom: </b> {{ currentUser.classroom_email_address }} <br><br>
+      <span class="mat-small text-justify">{{ PRIVACY_MESSAGE }}</span>
     </p>
     <div class="text-right">
       <button mat-button matStepperPrevious>Voltar</button>
@@ -34,10 +29,8 @@
     </div>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel>Concluído</ng-template>
-    <p class="mat-caption" class="text-justify">Suas configurações foram salvas. A partir de agora, você terá poderá
-      consultar atividades e visualizar suas datas
-      de entrega, além de receber notificações diárias referente aos trabalhos em aberto nos ambientes virtuais.</p>
+    <ng-template matStepLabel>{{ LABEL_STEP_THREE }}</ng-template>
+    <p class="mat-caption" class="text-justify">{{ PRIVACY_CONFIRMED }}</p>
     <div class="text-right">
       <button mat-raised-button color="link" (click)="goToHome()" matStepperNext>Acessar</button>
     </div>
