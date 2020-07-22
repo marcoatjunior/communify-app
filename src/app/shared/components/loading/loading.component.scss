@@ -1,0 +1,12 @@
+.loading {
+  z-index: 999;
+  height: calc(100vh - 56px);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #003d7e !important;
+}

@@ -20,6 +20,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { MatSelectModule } from "@angular/material/select";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { LoadingComponent } from "./components/loading/loading.component";
 
 @NgModule({
   imports: [
@@ -43,9 +45,10 @@ import { MatSelectModule } from "@angular/material/select";
     ReactiveFormsModule,
     MatButtonModule,
     MatSelectModule,
+    MatProgressSpinnerModule,
     RouterModule,
   ],
-  declarations: [NavbarComponent],
+  declarations: [NavbarComponent, LoadingComponent],
   exports: [
     CommonModule,
     ScrollingModule,
@@ -67,7 +70,9 @@ import { MatSelectModule } from "@angular/material/select";
     ReactiveFormsModule,
     MatButtonModule,
     MatSelectModule,
+    MatProgressSpinnerModule,
     NavbarComponent,
+    LoadingComponent,
   ],
 })
 export class SharedModule {}
