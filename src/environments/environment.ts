@@ -37,4 +37,6 @@ export const environment = {
     "https://www.googleapis.com/auth/classroom.topics",
     "https://www.googleapis.com/auth/classroom.topics.readonly",
   ],
+  validPublicKey:
+    "BJNiS6G7XAAFDvgJwyVrgsK7V9eK2pDZ5OzjpJX-FQMfjoL4bx1r0DbPh8uPNB_uDQVH_XTbr4IURimz2h7JmYw",
 };
