@@ -1,8 +1,8 @@
 <mat-card>
   <mat-card-header>
     <div mat-card-avatar>
-      <img *ngIf="!user.photo" src="assets/images/user.png" width="100%" layout-fill>
-      <img *ngIf="user.photo" [src]="user.photo" width="100%" layout-fill>
+      <img *ngIf="user && !user.photo" src="assets/images/user.png" width="100%" layout-fill>
+      <img *ngIf="user && user.photo" [src]="user.photo" width="100%" layout-fill>
     </div>
     <mat-card-title>{{ user.name }}</mat-card-title>
     <mat-card-subtitle>{{ user.classroom_email_address }}</mat-card-subtitle>
