@@ -64,14 +64,14 @@ export class AuthService {
   }
 
   private buildCurrentUser(user: gapi.auth2.GoogleUser): User {
+    localStorage.setItem("credential", JSON.stringify(user));
     const basicProfile = user.getBasicProfile();
     const authResponse = user.getAuthResponse();
-    const { id_token: token } = authResponse;
     return {
       name: `${basicProfile.getName()}`,
-      classroom_email_address: basicProfile.getEmail(),
+      classroomEmailAddress: basicProfile.getEmail(),
       photo: basicProfile.getImageUrl(),
-      token,
+      token: authResponse.id_token,
     } as User;
   }
 

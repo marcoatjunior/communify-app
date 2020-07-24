@@ -37,7 +37,7 @@ export class StepsComponent implements OnInit {
 
   setMoodleEmail() {
     if (this.moodleFormGroup.valid) {
-      this.currentUser.moodle_email_address = this.moodleFormGroup.get(
+      this.currentUser.moodleEmailAddress = this.moodleFormGroup.get(
         "email"
       ).value;
       localStorage.setItem("currentUser", JSON.stringify(this.currentUser));
@@ -49,7 +49,7 @@ export class StepsComponent implements OnInit {
     this.moodleFormGroup
       .get("email")
       .setValue(
-        this.sameEmail ? this.currentUser.classroom_email_address : null
+        this.sameEmail ? this.currentUser.classroomEmailAddress : null
       );
   }
 

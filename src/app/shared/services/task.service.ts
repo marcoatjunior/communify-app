@@ -74,7 +74,11 @@ export class TaskService {
     },
   ];
 
+  // get(): Observable<Task[]> {
+  // return of(this.fakeData).pipe(delay(2000));
+  // }
+
   get(): Observable<Task[]> {
-    return of(this.fakeData).pipe(delay(2000));
+    return this.httpClient.get<Task[]>(`${environment.apiUrl}/tasks`);
   }
 }
