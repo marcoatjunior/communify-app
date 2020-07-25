@@ -2,6 +2,6 @@ export interface User {
   name?: string;
   classroomEmailAddress?: string;
   moodleEmailAddress?: string;
-  photo?: Blob | string;
+  urlPhoto?: string;
   token?: string;
 }

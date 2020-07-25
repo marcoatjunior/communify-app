@@ -16,7 +16,7 @@
 
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <div *ngIf="courseWorks.length <= 0">
+  <div *ngIf="courseWorks.length <= 0" class="no-tasks-found">
     Não há tarefas publicadas.
   </div>
 </div>

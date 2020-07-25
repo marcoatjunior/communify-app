@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { User } from "@shared/models/user";
 import { Router } from "@angular/router";
+import { UserService } from "@shared/services/user.service";
 
 @Component({
   selector: "app-steps",
@@ -23,15 +24,49 @@ export class StepsComponent implements OnInit {
   moodleFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   sameEmail: boolean = false;
+  isLoading: boolean = false;
   currentUser: User;
+  userRegistered: User;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    this.searchIfNeedSteps();
+    this.buildForm();
+    this.getCurrentUser();
+  }
+
+  private searchIfNeedSteps() {
+    this.isLoading = true;
+    const { classroomEmailAddress } = JSON.parse(
+      localStorage.getItem("currentUser")
+    );
+    this.findUserByClassroom(classroomEmailAddress);
+  }
+
+  private findUserByClassroom(classroomEmailAddress: any) {
+    this.userService.findByClassroom(classroomEmailAddress).subscribe(
+      (user) => this.redirectOrStayInSteps(user),
+      () => (this.isLoading = false)
+    );
+  }
+
+  private redirectOrStayInSteps(user: User) {
+    !user ? (this.isLoading = false) : this.goToHome();
+  }
+
+  private buildForm() {
     this.moodleFormGroup = this.formBuilder.group({
       email: ["", Validators.required],
       same: [this.sameEmail],
     });
+  }
+
+  private getCurrentUser() {
     this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
   }
 
@@ -48,12 +83,19 @@ export class StepsComponent implements OnInit {
     this.sameEmail = !this.sameEmail;
     this.moodleFormGroup
       .get("email")
-      .setValue(
-        this.sameEmail ? this.currentUser.classroomEmailAddress : null
-      );
+      .setValue(this.sameEmail ? this.currentUser.classroomEmailAddress : null);
+  }
+
+  saveUser() {
+    this.isLoading = true;
+    this.userService.save(this.currentUser).subscribe(
+      () => this.goToHome(),
+      () => (this.isLoading = false)
+    );
   }
 
   goToHome() {
+    this.isLoading = false;
     this.router.navigate(["/"]);
   }
 }

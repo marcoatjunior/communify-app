@@ -70,7 +70,7 @@ export class AuthService {
     return {
       name: `${basicProfile.getName()}`,
       classroomEmailAddress: basicProfile.getEmail(),
-      photo: basicProfile.getImageUrl(),
+      urlPhoto: basicProfile.getImageUrl(),
       token: authResponse.id_token,
     } as User;
   }

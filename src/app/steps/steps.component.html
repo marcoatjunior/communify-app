@@ -1,4 +1,4 @@
-<mat-vertical-stepper [linear]="isLinear" #stepper>
+<mat-vertical-stepper [linear]="isLinear" #stepper *ngIf="!isLoading">
   <mat-step [stepControl]="moodleFormGroup">
     <form [formGroup]="moodleFormGroup">
       <ng-template matStepLabel>{{ LABEL_STEP_ONE }}</ng-template>
@@ -32,7 +32,13 @@
     <ng-template matStepLabel>{{ LABEL_STEP_THREE }}</ng-template>
     <p class="mat-caption" class="text-justify">{{ PRIVACY_CONFIRMED }}</p>
     <div class="text-right">
-      <button mat-raised-button color="link" (click)="goToHome()" matStepperNext>Acessar</button>
+      <button mat-raised-button color="link" (click)="saveUser()" matStepperNext>Acessar</button>
     </div>
   </mat-step>
 </mat-vertical-stepper>
+<div *ngIf="isLoading">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+  <div class="validate-access">
+    <strong>Validando acesso...</strong>
+  </div>
+</div>
