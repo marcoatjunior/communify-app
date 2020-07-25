@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { SharedModule } from "@shared/shared.module";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ErrorInterceptor } from '@shared/interceptor/error.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { environment } from '../environments/environment';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
