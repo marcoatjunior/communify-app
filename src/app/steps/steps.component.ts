@@ -56,6 +56,7 @@ export class StepsComponent implements OnInit {
   }
 
   private redirectOrStayInSteps(user: User) {
+    localStorage.setItem("currentUser", JSON.stringify(user));
     !user ? (this.isLoading = false) : this.goToHome();
   }
 
