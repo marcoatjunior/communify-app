@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Task } from "@shared/models/task";
-import { TaskService } from "@shared/services/task.service";
+import { CourseWork } from "@shared/models/course-work";
+import { CourseWorkService } from "@shared/services/course-work.service";
 import { Observable } from "rxjs";
 
 @Component({
@@ -9,14 +9,12 @@ import { Observable } from "rxjs";
   styleUrls: ["home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  readonly TASKS = `Lista de tarefas publicadas`;
+  displayedColumns: string[] = ["description"];
+  courseWorks$: Observable<CourseWork[]>;
 
-  displayedColumns: string[] = ["name"];
-  tasks$: Observable<Task[]>;
-
-  constructor(private taskService: TaskService) {}
+  constructor(private courseWorkService: CourseWorkService) {}
 
   ngOnInit(): void {
-    this.tasks$ = this.taskService.get();
+    this.courseWorks$ = this.courseWorkService.get();
   }
 }
