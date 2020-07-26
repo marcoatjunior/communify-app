@@ -2,18 +2,18 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from "environment";
-import { CourseWork } from "@shared/models/course-work";
+import { Task } from "@shared/models/task";
 
 @Injectable({ providedIn: "root" })
-export class CourseWorkService {
+export class TaskService {
   constructor(private httpClient: HttpClient) {}
 
-  get(): Observable<CourseWork[]> {
+  get(): Observable<Task[]> {
     const { moodleEmailAddress } = JSON.parse(
       localStorage.getItem("currentUser")
     );
-    return this.httpClient.get<CourseWork[]>(
-      `${environment.apiUrl}/courseWorks?email=${moodleEmailAddress}`
+    return this.httpClient.get<Task[]>(
+      `${environment.apiUrl}/tasks?email=${moodleEmailAddress}`
     );
   }
 }

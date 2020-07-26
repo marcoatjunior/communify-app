@@ -1,4 +1,4 @@
-export enum CourseWorkOriginEnum {
+export enum TaskOriginEnum {
   Classroom = "CLASSROOM",
   Moodle = "MOODLE",
 }
