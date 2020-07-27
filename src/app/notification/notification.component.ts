@@ -1,6 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { interval } from "rxjs";
-import { flatMap } from "rxjs/operators";
 import { NotificationService } from "@shared/services/notification.service";
 import * as moment from "moment";
 
@@ -14,8 +12,8 @@ export class NotificationComponent implements OnInit {
   constructor(private notificationService: NotificationService) {}
 
   ngOnInit(): void {
-    interval(1 * 60 * 1000)
-      .pipe(flatMap(() => this.notificationService.send()))
+    this.notificationService
+      .send()
       .subscribe(() =>
         this.sentNotification.push(
           `Notificações enviadas... ${moment().format("DD/MM/YYYY H:mm:ss")}`
