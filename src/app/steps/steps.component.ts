@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { User } from "@shared/models/user";
 import { Router } from "@angular/router";
 import { UserService } from "@shared/services/user.service";
+import { TermService } from "@shared/services/term.service";
 
 @Component({
   selector: "app-steps",
@@ -30,6 +31,7 @@ export class StepsComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private termService: TermService,
     private formBuilder: FormBuilder,
     private router: Router
   ) {}
@@ -90,9 +92,13 @@ export class StepsComponent implements OnInit {
   saveUser() {
     this.isLoading = true;
     this.userService.save(this.currentUser).subscribe(
-      () => this.goToHome(),
+      () => this.sendTermMail(),
       () => (this.isLoading = false)
     );
+  }
+
+  private sendTermMail() {
+    this.termService.send().subscribe(() => this.goToHome());
   }
 
   goToHome() {
