@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
   styleUrls: ["home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  displayedColumns: string[] = ["description"];
+  displayedColumns: string[] = ["course"];
   tasks$: Observable<Task[]>;
 
   constructor(private taskService: TaskService) {}
