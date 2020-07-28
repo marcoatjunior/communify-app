@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: "http://localhost:8080",
+  apiUrl: "https://communify-api.herokuapp.com/",
   credentials: {
     client_id:
       "381111669074-rvva1jbtrjbf1mnfiqufutvgkc9gjl57.apps.googleusercontent.com",
