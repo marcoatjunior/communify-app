@@ -45,8 +45,8 @@ export class AuthService {
     const pload = this.resolveAuthLoad();
     return pload.then(async () => {
       const { credentials } = environment;
-      const { client_id } = credentials;
-      await gapi.auth2.init({ client_id }).then((auth) => {
+      const { client_id, scopes } = credentials;
+      await gapi.auth2.init({ client_id, scope: scopes.join(" ") }).then((auth) => {
         this.gapiSetup = true;
         this.authInstance = auth;
       });
@@ -77,6 +77,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem("currentUser");
+    localStorage.removeItem("credential");
     this.currentUserSubject.next(null);
   }
 }
