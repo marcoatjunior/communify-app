@@ -1,14 +1,16 @@
 :host {
-  height: 100vh;
   background-image: url("../../assets/images/university.png");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
+  height: 100%;
 }
 
 .login-page {
+  align-items: center;
   justify-content: center;
-  margin: 33.3vh 9.5vh;
+  display: inline-grid;
+  margin: 50px;
 }
 
 .mat-form-field {
