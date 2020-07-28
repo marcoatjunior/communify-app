@@ -1,6 +1,6 @@
 {
-  "name": "communify-app",
-  "short_name": "communify-app",
+  "name": "La Salle Communify",
+  "short_name": "Communify",
   "theme_color": "#003d7e",
   "background_color": "#fafafa",
   "display": "standalone",
