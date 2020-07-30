@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "es2020",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": ["node_modules/@types"],
+    "types": ["gapi", "gapi.auth2"],
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "images": ["./src/assets/images/*"],
+      "styles": ["./src/styles/styles.scss"],
+      "config": ["./src/app/config.ts"],
+      "environment": ["./src/environments/environment.ts"],
+      "@shared/*": ["./src/app/shared/*"],
+      "@login/*": ["./src/app/login/*"]
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
+}
