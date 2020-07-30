@@ -2,7 +2,7 @@
   <mat-card-header>
     <div mat-card-avatar>
       <img *ngIf="user && !user.urlPhoto" src="assets/images/user.png" width="100%" layout-fill>
-      <img *ngIf="user && user.urlPhoto" [src]="user.urlPhoto" width="100%" layout-fill>
+      <img *ngIf="user && user.urlPhoto" src="{{ user.urlPhoto }}" width="100%" layout-fill>
     </div>
     <mat-card-title>{{ user?.name }}</mat-card-title>
     <mat-card-subtitle>{{ user?.classroomEmailAddress }}</mat-card-subtitle>
