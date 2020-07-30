@@ -8,7 +8,10 @@
         <p><strong>{{ task.course }}</strong></p>
         <sup>Tarefa: <strong>{{ task.description }}</strong></sup>
         <br>
-        <sup>Data de entrega: <strong>{{ task.returnDate | date: "dd/MM/yyyy" }}</strong></sup>
+        <sup>Data de entrega: 
+          <strong *ngIf="task.returnDate">{{ task.returnDate | date: "dd/MM/yyyy" }}</strong>
+          <strong *ngIf="!task.returnDate">Sem data de entrega</strong>
+        </sup>
         <br>
         <sup>Publicada em: <strong>{{ task.origin }}</strong></sup>
         <br>
